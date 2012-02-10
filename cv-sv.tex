@@ -1,0 +1,147 @@
+% Swedish CV for Victor Hallberg
+
+\def\name{Victor Hallberg}
+\date{2011-12-01}
+\title{Curriculum Vitae}
+\author{\name}
+
+% {{{ Document setup
+\documentclass[a4paper,10pt]{article}
+
+% Text configuration
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage{lmodern} % font
+%\renewcommand{\familydefault}{\sfdefault} % default family
+
+% Paragraphs
+\parindent 0mm
+\parskip 0mm
+
+% Margins
+\usepackage[top=1.8cm, bottom=1.8cm, left=2.5cm, right=2cm]{geometry}
+\newlength{\titleleft}
+\newlength{\titlefwidth}
+\setlength{\titlefwidth}{\textwidth}
+\setlength{\titleleft}{-0.5cm}
+\addtolength{\titlefwidth}{0.5cm}
+
+% Header and text formatting
+\usepackage{titlesec}
+
+\titleformat{\section}{\bfseries \Large}{\thesection}{}{}[\vspace{-5mm}\rule{\titlefwidth}{1pt}]
+\titleformat{\subsection}[runin]{\normalsize}{\thesubsection}{}{}
+\titleformat{\subsubsection}{\normalsize}{\thesubsubsection}{}{}
+
+% Spacing
+\titlespacing{\section}{\titleleft}{5mm}{1mm}
+\titlespacing{\subsection}{\titleleft}{3mm}{1mm}
+\titlespacing{\subsubsection}{0cm}{2mm}{1mm}
+
+% Custom headers
+\newcommand{\workplace}[1]{\textsl{#1}}
+\newcommand{\duration}[1]{\textbf{#1}}
+\newcommand{\theplace}[2][]{\subsection*{\textbf{#2}#1}}
+\newcommand{\thework}[2]{\subsubsection*{\workplace{#1}\hfill\duration{#2}}\par}
+\newcommand{\thebold}[1]{\subsection*{\textbf{#1}}\vspace{-1mm}}
+
+% Hyperlinking
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=black
+}
+
+% Footer
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage\ / \pageref{LastPage}}
+% }}}
+
+\begin{document}
+
+% Name
+\hspace{\titleleft}\parbox{\titlefwidth}{
+	{\bfseries \LARGE \name}\vspace{-2mm}\par
+	\rule{\titlefwidth}{1pt}\vspace{2mm} % ruler
+}
+
+% Address information
+\begin{tabular*}{\textwidth}{@{}l l @{\extracolsep{\fill}} r @{}}
+{\bf Född:} & 21:a januari 1989 & Forskarbacken 19, lgh 1102\\
+{\bf Telefon:} & +46 (0)70-283 55 65 & 114 15 Stockholm, Sweden \\
+{\bf E-post:} & \href{mailto:victorha@kth.se}{\tt victorha@kth.se} &
+\end{tabular*}
+
+\section*{Utbildning}
+\theplace[, Stockholm]{Kungliga Tekniska Högskolan}
+
+\thework{Civilingenjör Datateknik}{2008--pågående}
+Slutförd Kandidatexamen och pågående masterutbildning i datateknik.
+
+\theplace[, Täby]{Åva Gymnasium}
+
+\thework{Teknisk linje}{2005--2008}
+Teknisk gymnasielinje med inriktning datorteknik och högskola.
+
+\section*{Arbetserfarenhet}
+\theplace[, Stockholm]{Polisförbundet}
+
+\thework{Webbutvecklare}{2011}
+Utvecklade och lanserade en Wordpress-baserad sida åt Polisförbundets tidning.
+
+\theplace[, Stockholm]{Sveriges Ingenjörer}
+
+\thework{Webbutvecklare och designer}{2010}
+Skapade en ny design åt Ingenjörsbloggen (Sveriges Ingenjörers blogg), med tillhörande sociala funktioner.
+
+\thework{Webbutvecklare och designer}{2009--2011}
+Genomförde en nylansering av Ingenjören på webben 2009 med ny design och funktionalitet med Wordpress som underliggande system. Har sedan dess erbjudit support och vidareutvecklat webbsidan.
+
+\theplace[, Stockholm]{Tekniska Högskolans Studentkår}
+
+\thework{Webbutvecklare och designer}{2008--2009}
+Designade, utvecklade och underhöll Osqledarens (studentkårens tidning) webbsida, baserad på Wordpress.
+
+\theplace[, Solna]{Siemens IT Solutions and Services}
+
+\thework{Användar- och systemtestare}{2008}
+Arbetade under sommaren som testare för ett SAP-system under utveckling.
+
+\theplace[, Upplands Väsby]{Siemens Power Generation}
+
+\thework{Underhållning av datorsystem}{2005--2007}
+Under loven arbetade jag med installation och underhåll av servrar och arbetsstationer.
+
+\section*{Teknisk kompetens}
+Jag har bred erfarenhet och kunskaper inom programmering, med fokus på webbutveckling.
+
+\thebold{Programmering:} Java, JavaScript/jQuery, Ruby, PHP, C(++), grundläggande C\#.net och python.
+
+\thebold{Tekniker:} XHTML, CSS, MySQL, Apache, Microsoft IIS, Subversion, Git, Regular Expressions samt LaTeX.
+
+\thebold{Mjukvara:} Wordpress, Ruby on Rails, Eclipse, Visual Studio, Adobe Photoshop, Microsoft Office och vim.
+
+\thebold{Operativsystem:} Microsoft Windows, Unix/Linux samt Mac OS X.
+
+\section*{Språkkunskaper}
+\thebold{Svenska} - modersmål.
+\thebold{Engelska} - akademisk nivå.
+
+\section*{Förtroendeuppdrag}
+\theplace[, Kungliga Tekniska Högskolan]{Datasektionen}
+
+\thework{Informationsansvarig}{2010}
+Under ett år arbetade jag som informationsansvarig på sektionen, en post där jag ansvarade för informationsspridningen inom, från och till dess medlemmar.
+
+\thework{Fadder i mottagningen}{2009, 2010, 2011}
+Jag har sedan mitt andra år på KTH medverkat som fadder under mottagningen för de nyantagna på Datateknik. Som mottagningspersonal arbetar man heltid under tre veckor för att välkomna de cirka 200 nyantagna.
+
+\section*{Övrigt}
+Jag innehar B-körkort sedan år 2007.
+
+\end{document}
+
