@@ -5,7 +5,7 @@
 \title{Curriculum Vitae}
 \author{\name}
 
-% {{{ Document setup
+%{{{ Document setup
 \documentclass[a4paper,11pt]{article}
 
 % Text configuration
@@ -50,22 +50,6 @@
 \titlespacing{\subsection}{\titleleft}{3mm}{1mm}
 \titlespacing{\subsubsection}{0cm}{2mm}{1mm}
 
-% Custom formatters
-\newcommand{\icon}[1]{\textcolor{lightgray}{#1}}
-\newcommand{\iconl}[1]{\hspace{-0.5cm}\makebox[0.3cm][c]{\icon{#1}}\hspace{0.2cm}}
-
-% Custom headers
-\newcommand{\theheader}[0]{\sf \LARGE \bfseries \name}
-\newcommand{\worktitle}[1]{\textbf{#1}}
-\newcommand{\duration}[1]{\textsl{#1}}
-\newcommand{\theplace}[2][]{\subsection*{\textbf{#2}#1}}
-\newcommand{\thework}[2]{\subsubsection*{%
-  \iconl{$\blacksquare$}%
-  \worktitle{#1}%
-  \hfill\duration{#2}}\par%
-}
-\newcommand{\thebold}[1]{\subsection*{\textbf{#1}}\vspace{-1mm}}
-
 % Hyperlinking
 \usepackage[pdftex]{hyperref}
 \hypersetup{
@@ -80,11 +64,30 @@
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \cfoot{\thepage\ / \pageref{LastPage}}
-% }}}
+
+%}}}
+%{{{ Custom formats and commands
+
+\newcommand{\icon}[1]{\textcolor{lightgray}{#1}}
+\newcommand{\iconl}[1]{\hspace{-0.5cm}\makebox[0.3cm][c]{\icon{#1}}\hspace{0.2cm}}
+
+% Headers
+\newcommand{\theheader}[0]{\sf \LARGE \bfseries \name}
+\newcommand{\worktitle}[1]{\textbf{#1}}
+\newcommand{\duration}[1]{\textsl{#1}}
+\newcommand{\theplace}[2][]{\subsection*{\textbf{#2}#1}}
+\newcommand{\thework}[2]{\subsubsection*{%
+  \iconl{$\blacksquare$}%
+  \worktitle{#1}%
+  \hfill\duration{#2}}\par%
+}
+\newcommand{\thebold}[1]{\subsection*{\textbf{#1}}\vspace{-1mm}}
+%}}}
 
 \begin{document}
 
 %{{{ Header
+
 % Name
 \hspace{\titleleft}\parbox{\titlefwidth}{
 	{\theheader}\vspace{-2mm}\par
@@ -97,6 +100,7 @@
 \iconl{\Telefon} {\bf Phone number:}  & +46 (0)70-283 55 65 & 114 15 Stockholm, Sweden \\
 \iconl{\Letter} {\bf Email address:} & \href{mailto:victorha@kth.se}{\tt victorha@kth.se} &
 \end{tabular*}
+
 %}}}
 \section*{Education}%{{{
 \theplace[, Stockholm, Sweden]{\href{http://kth.se}{Kungliga Tekniska Högskolan (The Royal Institute of Technology)}}
@@ -158,5 +162,6 @@ I organize the 30th year anniversary of the computer science chapter together wi
 \thework{Mentor for new students}{2009, 2010, 2011, 2012}
 I have, since my second year at KTH, worked as a mentor for the new computer science students arriving each year. This involves elaborate planning and full time work during the first three weeks of the semester.
 %}}}
+
 \end{document}
 
