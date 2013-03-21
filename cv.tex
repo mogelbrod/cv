@@ -1,16 +1,16 @@
 % English CV for Victor Hallberg
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 
 \def\name{Victor Hallberg}
-\date{2013-02-17}
+\date{2013-03-21}
 \title{Curriculum Vitae}
 \author{\name}
 
 %{{{ Document setup
-\documentclass[a4paper,11pt]{article}
 
 % Text configuration
-\usepackage[utf8]{inputenc}
-\usepackage[swedish]{babel}
 \usepackage{lmodern} % font
 %\renewcommand{\familydefault}{\sfdefault} % default family
 
@@ -21,42 +21,22 @@
 \usepackage{textcomp}
 
 % Colors [http://ctan.uib.no/macros/latex/contrib/xcolor/xcolor.pdf]
-\usepackage[svgnames]{xcolor}
+\usepackage[x11names]{xcolor}
+
+% Hyperlinking
+\usepackage[pdftex]{hyperref}
+\hypersetup{%
+	colorlinks = true,%
+	linkcolor  = black,%
+	urlcolor   = black%
+}
 
 % Paragraphs
 \parindent 0mm
 \parskip 0mm
 
 % Margins
-\usepackage[top=1.6cm, bottom=1.6cm, left=2.5cm, right=2cm]{geometry}
-\newlength{\titleleft}
-\newlength{\titlefwidth}
-\setlength{\titlefwidth}{\textwidth}
-\setlength{\titleleft}{-0.5cm}
-\addtolength{\titlefwidth}{0.5cm}
-
-% Header and text formatting
-\usepackage{titlesec}
-
-% CV sections
-\titleformat{\section}{\sf \bfseries \Large}{\thesection}{}{}[\vspace{-5mm}\rule{\titlefwidth}{1pt}]
-% Work places / bold leaders
-\titleformat{\subsection}[runin]{\normalsize}{\thesubsection}{}{}
-% Work titles
-\titleformat{\subsubsection}{\normalsize}{\thesubsubsection}{}{}
-
-% Spacing
-\titlespacing{\section}{\titleleft}{5mm}{1mm}
-\titlespacing{\subsection}{\titleleft}{3mm}{1mm}
-\titlespacing{\subsubsection}{1mm}{2mm}{1mm}
-
-% Hyperlinking
-\usepackage[pdftex]{hyperref}
-\hypersetup{%
-	colorlinks = true,%
-	linkcolor  = Black,%
-	urlcolor   = Navy%
-}
+\usepackage[top=1.6cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 
 % Footer
 \usepackage{lastpage}
@@ -65,23 +45,68 @@
 \renewcommand{\headrulewidth}{0pt}
 \cfoot{\thepage\ / \pageref{LastPage}}
 
+% Header and text formatting
+\usepackage{titlesec}
+
+% Sections
+\titleformat{\section}%
+  [block]% shape
+  {\color{white} \sf \bfseries \Large}% format
+  {}% label
+  {}% sep
+  {\colorsection}% before
+\newcommand{\colorsection}[1]{%
+  \setlength\fboxsep{2mm}%
+  \colorbox{SkyBlue4}{\parbox[t][3.5mm]{\dimexpr\textwidth-2\fboxsep}{#1}}%
+}
+
+% Work titles
+\titleformat{\subsection}%
+  [block]% shape
+  {\color{white} \normalsize \sf}% format
+  {}% label
+  {}% sep
+  {\colorsubsection}% before
+\newcommand{\colorsubsection}[1]{%
+  \setlength\fboxsep{2mm}%
+  \colorbox{Azure4}{\parbox[t][2.2mm]{\dimexpr\textwidth-2\fboxsep}{#1}}%
+}
+
+% Work places
+\titleformat{\subsubsection}%
+  [block]% shape
+  {\normalsize}% format
+  {\thesubsection}% label
+  {}% sep
+  {}% before
+
+% Spacing
+\titlespacing{\section}{0mm}{8mm}{3mm}
+\titlespacing{\subsection}{0mm}{5mm}{2mm}
+\titlespacing{\subsubsection}{0mm}{2mm}{1mm}
+\titlespacing{\runin}{0mm}{2mm}{1mm}
+
 %}}}
 %{{{ Custom formats and commands
 
-\newcommand{\icon}[1]{\textcolor{lightgray}{#1}}
-\newcommand{\iconl}[1]{\hspace{-0.5cm}\makebox[0.3cm][c]{\icon{#1}}\hspace{0.2cm}}
+\newcommand{\icon}[1]{\textcolor{Azure4}{#1}}
+\newcommand{\iconl}[1]{\makebox[0.3cm][c]{\icon{#1}}\hspace{0.2cm}}
 
 % Headers
-\newcommand{\theheader}[0]{\sf \LARGE \bfseries \name}
-\newcommand{\worktitle}[1]{\textbf{#1}}
-\newcommand{\duration}[1]{\textsl{#1}}
-\newcommand{\theplace}[2][]{\subsection*{\textbf{#2}#1}}
-\newcommand{\thework}[2]{\subsubsection*{%
-  \iconl{$\blacksquare$}%
-  \worktitle{#1}%
-  \hfill\duration{#2}}\par%
+\newcommand{\theheader}[0]{%
+  \sf \LARGE \bfseries \name%
 }
-\newcommand{\thebold}[1]{\subsection*{\textbf{#1}}\vspace{-1mm}}
+\newcommand{\thework}[2]{
+  \subsection*{\textbf{#1} \hfill \textbf{#2}}\par%
+}
+\newcommand{\theplace}[2][]{%
+  \subsubsection*{\textbf{#2}\textsl{#1}}%
+}
+\newcommand{\runin}[1]{%
+  \vspace{2mm}
+  \hspace{0mm}%
+  {\normalsize \bfseries #1}%
+}
 %}}}
 %{{{ Keywords
 \def\html{\href{http://en.wikipedia.org/wiki/HTML}{HTML}}
@@ -116,81 +141,84 @@
 %{{{ Header
 
 % Name
-\hspace{\titleleft}\parbox{\titlefwidth}{%
-	{\theheader}\vspace{-2mm}\par%
-	\rule{\titlefwidth}{1pt}\vspace{2mm} % ruler
+\hspace{0mm}\parbox{\textwidth}{%
+	{\theheader}\par%
+	\vspace{3mm}%
 }
 
 % Address information
 \begin{tabular*}{\textwidth}{@{}l l @{\extracolsep{\fill}} r @{}}
-\iconl{\bf \Large \textborn} {\bf Date of birth:} & 21 January 1989     & Forskarbacken 19, lgh 1102\\
+\iconl{\bf \Large \textborn} {\bf Date of birth:} & 21 January 1989 & Forskarbacken 19, lgh 1102\\
 \iconl{\Telefon} {\bf Phone number:}  & +46 (0)70-283 55 65 & 114 15 Stockholm, Sweden \\
 \iconl{\Letter} {\bf Email address:} & \href{mailto:victorha@kth.se}{\tt victorha@kth.se} &
 \end{tabular*}
 
 %}}}
-\section*{Education}%{{{
-\theplace[, Stockholm, Sweden]{\href{http://kth.se}{Kungliga Tekniska Högskolan (The Royal Institute of Technology)}}
+\section*{Introduction}%{{{
 
+I specialize in web development, primarily on the frond end, which I find both engaging and challenging thanks to the focus on user experience.\\
+
+During my time studying towards a master's degree in Computer Science I've been working part time as a freelancing web developer doing contract work, utilizing the flexibility of \wordpress\ to deliver dynamic and streamlined web sites for organizations. I've also been active in a number of school organizations and projects, where I've worked a lot with \ruby\ based web frameworks.
+
+%}}}
+\section*{Education}%{{{
 \thework{Master of Science degree in Computer Science}{2011.08--present}
+\theplace[, Stockholm, Sweden]{\href{http://kth.se}{Kungliga Tekniska Högskolan}}
 Ongoing M.Sc. degree with an anticipated graduation in December 2013.
 
 \thework{Bachelor of Science degree in Computer Science}{2008.08--2011.06}
-\vspace{4mm}
+\theplace[, Stockholm, Sweden]{\href{http://kth.se}{Kungliga Tekniska Högskolan}}
+\vspace{6mm}
 
 %}}}
 \section*{Experience}%{{{
+
+\thework{Web developer intern}{2013.01--2013.03}
 \theplace[, Stockholm, Sweden]{\href{http://www.netgaming.se}{Net Gaming Europe AB}}
+Was responsible for developing the frontend for an \href{http://casinoloco.com}{online casino site} launched during the internship. The site used \wordpress\ as a platform and the internship involved design work and development of a responsive casino site accessible by a multitude of devices.
 
-\thework{Web developer intern}{2013.01--present}
-Was responsible for developing the frontend for a \href{http://casinoloco.com}{online casino site} launched during the three month internship. The site used \wordpress\ as a platform and the intership involved design work, custom feature implementation and development of a completely responsive casino site accessible by a multitude of devices.
+\thework{Web developer, part time}{2011.03--2012.07}
+\theplace[, Stockholm, Sweden]{\href{http://www.polisforbundet.se}{Polisförbundet}}
+Developed and launched a \wordpress-based web site for \href{http://www.polistidningen.se}{Polistidningen}, a magazine for members of the \mbox{Swedish} Police Union. The work consisted of implementing a web design by specification along with developing plugins tailored for the site. I have also set up and maintained their web servers (Windows and Linux) since the launch.
 
-\theplace[, Stockholm, Sweden]{\href{http://www.polisforbundet.se}{Polisförbundet (The Swedish Police Union)}}
+\thework{Web developer and designer, part time}{2009.09--2012.05}
+\theplace[, Stockholm, Sweden]{\href{http://www.sverigesingenjorer.se}{Sveriges Ingenjörer}}
+Developed a new web site for \href{http://www.ingenjoren.se}{Ingenjören}, a regularly published magazine for members of Sveriges Ingenjörer. I have since the launch in 2009 provided support and developed several additions for the site, which uses \wordpress\ as a platform.
 
-\thework{Web developer (contract)}{2011.03--present}
-Developed and launched a \wordpress-based web site for \href{http://www.polistidningen.se}{Polistidningen}, a magazine for members of the \mbox{Swedish} Police Union. The work consisted of implementing a web design by specification along with developing a number of custom functionalities specific to the site. I have also maintained and configured their web servers (both Windows and Linux environments) since the launch.
-
-\theplace[, Stockholm, Sweden]{\href{http://www.sverigesingenjorer.se}{Sveriges Ingenjörer (The Swedish Association of Graduate Engineers)}}
-
-\thework{Web developer and designer (contract)}{2009.09--2012.05}
-Developed a new version of \href{http://www.ingenjoren.se}{Ingenjören}, a regularly published magazine for members of Sveriges Ingenjörer. I have since the launch in 2009 provided support and developed several additions for the site.
-
-\thework{Web developer and designer (contract)}{2010.05--2010.12}
-Designed and implemented a new design for \href{http://www.ingenjorsbloggen.se}{Ingenjörsbloggen}, the official blog of Sveriges Ingenjörer. The project, developed as a \wordpress\ theme, also included implementation of social network functionalities.
-
-\theplace[, Solna, Sweden]{Siemens IT Solutions and Services}
+\thework{Web developer and designer, part time}{2010.05--2010.12}
+\theplace[, Stockholm, Sweden]{\href{http://www.sverigesingenjorer.se}{Sveriges Ingenjörer}}
+Designed and implemented a new \wordpress\ theme for \href{http://www.ingenjorsbloggen.se}{Ingenjörsbloggen}, the official blog of Sveriges Ingenjörer.
 
 \thework{User and systems tester}{2008.06--2008.07}
+\theplace[, Solna, Sweden]{Siemens IT Solutions and Services}
 Worked as a tester on a SAP system being developed for a large company during the summer break.
 
 %}}}
-\section*{Technical expertise}%{{{
-I have a broad knowledge in and experience with programming in general but specialize in web development, primarily on the front end (interface and design implementation).
+\section*{Extracurricular experience}%{{{
 
-\thebold{Languages:} \html, \css, \javascript/\jquery, \java, \ruby, \php, \clang(++), basic \csharp\ and \python.
+\thework{30-year anniversary organizer}{2012.05--present}
+\theplace[, Stockholm, Sweden]{\href{http://kth.se}{Kungliga Tekniska Högskolan}}
+I organize the \href{http://djubileet.se/}{30th year anniversary} of the computer science chapter together with a group of five other people. My responsibilities includes managing the web site and communications channels as well as planning and carrying out events for up to 700 people.
 
-\thebold{Tools:} \wordpress, \ror, \regex, \git, \svn, \latex\ and shell scripting.
+\thework{Mentor for new students}{2009--2012}
+\theplace[, Stockholm, Sweden]{\href{http://kth.se}{Kungliga Tekniska Högskolan}}
+I have worked as a mentor for the new computer science students arriving each year, where I get to practice my leadership and pedagogic skills during a month of intensive work.
 
-\thebold{Software:} \mysql, \apache, \iis, \solr, \eclipse, \vs, \vim, \photoshop\ and \office.
+%}}}
+\section*{Technical skills}%{{{
+\vspace{-2mm}
 
-\thebold{Operating systems:} Microsoft Windows, Unix/Linux and Mac OS X.
+\runin{Languages:} \html, \css, \javascript, \java, \ruby, \php, \clang(++) and \python.
+
+\runin{Tools:} \jquery, \wordpress, \ror, \regex, \git, \svn, \latex\ and shell scripting.
+
+\runin{Software:} \mysql, \apache, \iis, \solr, \eclipse, \vs, \vim, \photoshop\ and \office.
+
+\runin{Operating systems:} Microsoft Windows, Unix/Linux and Mac OS X.
+
 %}}}
 \section*{Languages}%{{{
 \textbf{Swedish} is my native language. I also speak and write \textbf{English} on an academic level.
-%}}}
-\section*{Extracurricular  experience}%{{{
-I have been active in a number of organisations and groups during my time at the university.
-
-\theplace[, Stockholm, Sweden]{\href{http://kth.se}{Kungliga Tekniska Högskolan (The Royal Institute of Technology)}}
-
-\thework{Study tour organizer}{2012.07--present}
-I'm head of IT and communications in the \href{http://studieresan.se}{StuDs 2013} project, the study tour for members of the computer science chapter. The goal of the project includes meeting and connecting with interesting companies in Sweden and other countries which we will be visiting during the end of the course.
-
-\thework{30-year anniversary organizer}{2012.05--present}
-I organize the \href{http://djubileet.se/}{30th year anniversary} of the computer science chapter together with a group of five other people. The anniversary involves multiple events of different sizes (each one enganging between 40 and 700 people) leading up to the 30th birthday of the chapter.
-
-\thework{Mentor for new students}{2009, 2010, 2011, 2012}
-I have, since my second year at KTH, worked as a mentor for the new computer science students arriving each year. This involves elaborate planning and full time work during the first three weeks of the semester.
 %}}}
 
 \end{document}
